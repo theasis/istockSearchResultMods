@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "iStock search/lightbox result modifications",
+  "description": "Adds contributor stats and highlighting to the istockphoto website.",
+  "version": "1.0.14",
+  
+  "icons": { 
+          "128": "search-results-icon-1.png" },
+  "content_scripts": [ {
+    "js": [ "jquery-1.9.0.min.js", "theasis_search_results_modifications.user.js" ],
+  "matches": [
+    "http://*.istockphoto.com/portfolio/*",
+    "https://*.istockphoto.com/portfolio/*",
+    "http://*.istockphoto.com/animation/*",
+    "https://*.istockphoto.com/animation/*",
+    "http://*.istockphoto.com/music/*",
+    "https://*.istockphoto.com/music/*",
+    "http://*.istockphoto.com/videos/*",
+    "https://*.istockphoto.com/videos/*",
+    "http://*.istockphoto.com/illustrations/*",
+    "https://*.istockphoto.com/illustrations/*",
+    "http://*.istockphoto.com/photos/*",
+    "https://*.istockphoto.com/photos/*",
+    "http://*.istockphoto.com/search/*",
+    "https://*.istockphoto.com/search/*",
+    "http://*.istockphoto.com/royalty-free/*",
+    "https://*.istockphoto.com/royalty-free/*",
+	"http://*.istockphoto.com/my-account/preferences*",
+	"https://*.istockphoto.com/my-account/preferences*"
+
+  ] } ]
+}
