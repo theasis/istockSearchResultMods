@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           iStock search/lightbox result modifications
 // @namespace      theasis
-// @version        1.0.14
+// @version        1.0.15
 // iStockPhoto browser script (c) Martin McCarthy 2013,2014
 // ==/UserScript==
 // v0.0.1 Martin McCarthy 4 May 2013
@@ -77,6 +77,8 @@
 // Per file royalties are now highlighted in red when non-zero
 // v1.0.14 Martin McCarthy 4 November 2014
 // iStock changed the case of usernames is some circumstances
+// v1.0.15 Martin McCarthy 8 January 2015
+// graph royalties for more than this year
 
 function main() {
 	// this part is...
@@ -130,6 +132,9 @@ function main() {
 	// end of James Campos' code
 
 var zoomicon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAuCAMAAACS246gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowNjBFRUVCOTY5ODYxMUUzQjg4N0NDQTVGMUM0Q0QwRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowNjBFRUVCQTY5ODYxMUUzQjg4N0NDQTVGMUM0Q0QwRSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA2MEVFRUI3Njk4NjExRTNCODg3Q0NBNUYxQzRDRDBFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjA2MEVFRUI4Njk4NjExRTNCODg3Q0NBNUYxQzRDRDBFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+WrY5EQAAAwBQTFRFerzHa73MlcLJJoKSttrgjczYhsLMQ6y/jr3FNpqqz+frMaS5lMbP9fr8brbC4vDzhcnWDnWGK6G3Ip20JpGjZrG+ks7aisTN4vL1ZbvKV7TGxeXrqdnhTqa0ndPdlcnSEYaadcLQcsDPWrbHaLK/W6y5R63AS6SzRqGxo9DYUrLEDoWZHpuyG4yh////DXiLDX6RHpqxDoSYDoOXHJKo/f7+8fn6+/39HpmwHpmvDXiKgba/iMDK8fj5I5Ci+vz98Pf5HJOpj8PN/P7+iLrC9fr7MpOl/P3+8/r7+v39kMTN+fz9ibrD9vv8DoGVDoKWRJOgn8zUT6KxmcTLDXyO8vn7l8jQDXmLHZivDXqMkL/He7K7G42iHZSqDX+SHZetHJClgrzHnMXMm8rS8vn6IIqeos3VE3iI8vj5HIicMJGk9Pr79/v8G46j6fP16PLzaaizI4CQcrTA8/n6hLjAi8HL5fL0HH2Ng73IfrS9h7/Je7O8hr7J5/T3M5OlL4eXLpCj/v//DX2Qg7fA+fz8qdHYKY+i8Pj5lsfQf7W+kL7GO5ippMrQisHLIX+QqdPbZ7zLPam9HIyf+Pz8r9vkXK26+Pv89Pn68vj6L5an0uns1ezx6vT29vr7HI6jyufthb7JwN/kkM7Z9vv7lsrSY7rKTKWzbLG9iMPNicDLptLZ0uvvs9jfuN/nWLXGWKq4fLO89Pr6Opusx+LnhL3I5PH05PP2q9riV6q48Pj6gre/fbS9Y6Sv7/f46fL0+/3+5vT2G4ebYrnJccDOfMXSH4qdiL/K4O/ynMrTSKKxz+rvgcfUcL/OD4WZEneI9/v7p9jhYK+8v+Pp5vL0ncbNksjRSq/Bo87V9/z9KZOlfr3Iu93ivN3jH5uycrjDm9PdXbfHG4yfUae19fr6+Pz9PZ2tMKO4NaW6VLPEOKa70ervVqm3wOPquuDnIY+hkcfQgLW+oc/XzOXpYrC96/b4vOHov9/kOZur6PX3FIibmNHcmdLcX667bLTBYbnJ////NsITMAAAAQB0Uk5T////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AFP3ByUAAAW7SURBVHjatJh3dNNWFMZNTKHgUkjTQikFCgQKSHpyYlmO4xk7dpxhMp1JQoZD9oYwEwgrYUMTZhIoYe9SChTKLN2T7r33nrSlLTVPTmLpyZbSnJ5+f+g9HR//fP3pvvfulcTFk6FiRcyMeRkZ82bErKgwuHqQqrwpaubsnJzZM6OaylX8TyXIXURiTGWVfyhJpqSQZKh/VWVMolKYbI6Pqi4uIghi6lR4KSqujopXCsIj/OZIQ9PkWYpgtxRZ8rRQ6XK/CAF03nwrUUZlhgS5FZJJlRHWuU+ZfcNzNQtIuSIY4yhYIScXaF71xZ6uXUlQ6iCcoyA1RazUvuELnh5HLorFvBS7iIxL92YnJxBUKu6lVIpISPaCq8KlSVMwn5qSJA3nPSuVqT57Gu5T07LrTSoUvkpTII/FBBQrLzizisteqs33FXZ38Pn7l3LhL2qg25igoPOaJSx7o5YIC8EFFRJGaA0sPGJxgRwTlbxgsSfLzKvzw3BRheWvVnrgN0vF4u6MXbqiG35LPRUiDg+h6pu64blxSbFYD4pNisvtysGE7FS8B6VmJ0zvhCs1JJonW/aM/N07Z0iN+68qtQSaJ+uPjJvgnTOEVumG+81CDH9/YI3RWHii3/d822f5MfC8ZYjhjx0soWnHxZs+59u+LI+BK+eQHMP1O9pBY/vORlXD4C0828nlMBjlfELNImQjSgFtL6UvNJxcj8LVxFwlhCdKOYHr24Gh38jb9RPfPgdqeHS5NNHlirdSHLYdRHaM+0I2echpUMKjU9Z4CA8PZQPX14Lj+q7pLrBEj4YeGu5ymTiBy+rAdlnXdBSIlvFCN7kkhso0dq/aBZ5kgId+Y+hrwUAEHpxWaVBVl7F71ShwJwM8PIKht4CvEXhQWbVKUlHFuvKapfFjONwXbbyXoW/UfYP6UlVRXsy68ped/hAOt0XSdzH0aPof1Jfickm6f5bn25ZjJzAWjq0tnYTAs/zTk4syPd+2D7qIs3C8pfluBJ5ZlCyJYS0fsHnnT/DaLzDaGCjZgGGBNYN5psdEEZ7F2d9WegVeO8ZG0mOHrMPxyyUn0WVKREk0pMfyp42WW7EBhWCTwbzJoNuAbdBtQk0nNVrCY/mXtH0M/AVgiTSXRDrX4eucFtR0Qit5gIV/prOMxrB3tx5w6iYNPI5hvxS28eCPPMTCX3faR+H4t62nbM4rB7fjeB/brzz4/ZKMFA/8eWDZyowfdXk+urQvDz4vZ6oH/h6wt3I9/+DNqzz4bC4cO9S4eUDnA90Dh2uWmjtE4Phh2ta/E34EDgH2kue84BxbMOwd0JfJ8621zI2k+RwmYguOvwy+Y/K8tY65eTb6NO5li4YL1zeDfd3LMtBonIiJPFAmtUFH97K8TNOTca8HyklFqAd14Oe/74GTkQdqgHE8xl//nFSEmuAAz/QJgJNxp0oAPZx3YhAmZBEx9AhQ2FA7ONIISnVAN0xsETF0M7A11J28QINPncAx1GsRnV+DHp/6H5S6Y59stqzVH9WBwn3I8l9zvm0hhRBkfyodg+w2e4tstxPYOpDlv7AN3bjcujb++vWX3oKTo2jsXhuXWwHDx4zp8xWc7HYgsbs3LmTL5elhGPsw4S2Xp0cdwDYU3XJdiWuEywpIt/RlXWEOC54vCJ0G9qusK8xhoVxOCtcV43WgFj3m5gqHjg93gDr0mOMf0Kh2vKIXPaBRjfhDhh7Q3qWF73JUqLTwXY52lxZMUaToia3gFkXqnthqT1HU63LO2nM5Z23qTSH6wozeFKKPz2QLUdfGXpXQS3pVQsPi/0yBMF0BC2i0+N+fTwn6rqbyVy/9b22LVbhtsfLblv+34WIy8keBVjHXZ6v4hECrOL0XTe4c0SZ3G7fJ3UZY5+eZRdrz8LNMe54CxbTnZ8PF23PT3uJLTHfO9OeXiveaRNpz9sVCBtS/f7GQA+XzxcINAQYAGPIY4jaBmyYAAAAASUVORK5CYII=";
+
+var theasisStatsYear='YEAR';
+var theasisStatsOffset=0;
 
 // iStock preferences page script
 //
@@ -203,15 +208,18 @@ theasisPrefs={
 		November: 10,
 		December: 11
 	};
-	for (var i = 0; i < months.length; i++) {
-		monthlyRoyalties[i] = 0;
-		monthlyDownloads[i] = 0;
-	}
+	resetMonthlyData();
 	// End of monthly data variables
 
+	function resetMonthlyData() {
+		for (var i = 0; i < months.length; i++) {
+			monthlyRoyalties[i] = 0;
+			monthlyDownloads[i] = 0;
+		}
+	}
+	
 	// Returns an array of div tags ready for outputing
 	// Added for monthly graph output
-
 	function chart(values) {
 		var last = values.length - 1;
 		var sum = 0;
@@ -304,6 +312,7 @@ theasisPrefs={
 	};
 	processRoyalty = function (data, id) {
 		var html = jQ(data);
+		var done = false;
 		var hitTotal = jQ("#theasisSearchPageHitTotal").text();
 		jQ("table.t td p", html).each(function () {
 			var match = jQ(this).text().match(/\$(\d+\.\d+)\s*USD/);
@@ -321,10 +330,16 @@ theasisPrefs={
 				countContainer.text(currentCount + 1);
 				if ((currentCount + 1) == parseInt(hitTotal)) {
 					jQ("#theasisSearchHitRunningCount").remove();
+					done = true;
 				}
 			}
 		});
 
+		var captionWithYear = jQ("div.stats:eq(2) tr:eq(1) td:eq(0)", html).text();
+		var match = captionWithYear.match(/(\d{4}):/);
+		if (match) {
+			theasisStatsYear=match[1];
+		}
 		jQ("div.stats:gt(1) td div[title]", html).each(function () {
 			var mytext = jQ(this).attr("title");
 			if (mytext.substr(-2) == " 0") {
@@ -410,7 +425,11 @@ theasisPrefs={
 			mdl = monthlyDownloads[i].total || 0;
 			text += '<div class="theasis_graphcontainer"' + (i == months.length - 1 ? ' style="margin-left:50px;' : '') + '">';
 			text += '<div class="theasis_graphcell">$' + mroy + '<div class="bargraph_main" style="height: ' + royaltylBars[i].total + 'px;">' + barRoy + '</div></div>';
-			text += '<div style="font-weight: bold; background-color:#' + (i == months.length - 1 ? '333; color:#fff;' : 'ddd;') + '">' + mnLabel[i] + '</div>';
+			var monthLabel = mnLabel[i];
+			if (i==12 && theasisStatsYear) {
+				monthLabel = theasisStatsYear;
+			}
+			text += '<div style="font-weight: bold; background-color:#' + (i == months.length - 1 ? '333; color:#fff;' : 'ddd;') + '">' + monthLabel + '</div>';
 			text += '<div style="display: table-cell; vertical-align: top; height: 150px; width: 50px">' + '<div class="bargraph_main" style="height: ' + dlBars[i].total + 'px">' + barDl + '</div>' + mdl + '</div>';
 			text += '</div>';
 		}
@@ -423,11 +442,23 @@ theasisPrefs={
 		var srchContainer = jQ("#theasisSearchHitRoyaltyContainer");
 		srchContainer.prepend(element);
 
+		if (done) {
+			if (theasisStatsOffset==0) {
+				theasisStatsOffset=11;
+				jQ("#searchReturnDataMonthly_div").attr("id","completeSearchReturnDataMonthly_div");
+				var statsContainer = jQ("#theasisSearchHitRoyaltyContainer");
+				statsContainer.attr("id","theasisCompleteSearchHitRoyaltyContainer");
+				statsContainer.before("<div id='theasisSearchHitRoyaltyContainer'/>");
+				resetMonthlyData();
+				addDetailsButton();
+			}
+		}
 		// //////////////////////////////////////////
 
 	};
 	loadDetails = function () {
 		disableDetailsButton();
+		theasisStatsYear='YEAR';
 		var hitTotal = jQ("#theasisSearchPageHitTotal").text();
 		jQ("#theasisSearchHitRoyaltyContainer").html("<br>Total Royalty: $<span id='theasisSearchHitRoyaltyTotal'>0.00</span><span id='theasisSearchHitRunningCount'> (<span id='theasisSearchHitRoyaltyCount'>0</span> of " + hitTotal + ")</span>");
 		var uid = window.theasis_loggedInUserID;
@@ -448,14 +479,19 @@ theasisPrefs={
 						elId=match[1];
 					}
 					url = "/file_downloads.php?id=" + elId;
+					if (theasisStatsOffset) {
+						url += "&Offset="+theasisStatsOffset;
+					}
 				}
-				var royDiv = div.find(".theasis_srRoyalty");
-				var royDivContent = mine ? "Royalty: <span id='theasis_searchRoyaltySpan" + elId + "' style='color:#0c8;'>loading</span>" : "&nbsp;";
-				if (royDiv.length == 0) {
-					div.parent().append(jQ("<div class='theasis_srRoyalty'>" + royDivContent + "</div>"));
-				}
-				else {
-					royDiv.html(royDivContent);
+				if (theasisStatsOffset==0) {
+					var royDiv = div.find(".theasis_srRoyalty");
+					var royDivContent = mine ? "Royalty: <span id='theasis_searchRoyaltySpan" + elId + "' style='color:#0c8;'>loading</span>" : "&nbsp;";
+					if (royDiv.length == 0) {
+						div.parent().append(jQ("<div class='theasis_srRoyalty'>" + royDivContent + "</div>"));
+					}
+					else {
+						royDiv.html(royDivContent);
+					}
 				}
 				if (url) {
 					//                                      console.log("ajax with id = " + elId);
@@ -471,8 +507,9 @@ theasisPrefs={
 		}
 	};
 	addDetailsButton = function () {
+		var text="Royalty " + (theasisStatsOffset?"Last":"This") + " Year";
 		jQ("#theasis_searchRoyaltyDetailsButton").remove();
-		var button = jQ("<input id='theasis_searchRoyaltyDetailsButton' type='submit' value='Royalty' class='btnCta1' style='float:right;padding:3px 7px;font-size:0.6em;'>").click(loadDetails);
+		var button = jQ("<input id='theasis_searchRoyaltyDetailsButton' type='submit' value='"+text+"' class='btnCta1' style='float:right;padding:3px 7px;font-size:0.6em;'>").click(loadDetails);
 		jQ("#search-title-count").after(button);
 	};
 	disableDetailsButton = function () {
