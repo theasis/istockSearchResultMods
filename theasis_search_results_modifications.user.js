@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           iStock search/lightbox result modifications
 // @namespace      theasis
-// @version        1.0.15
+// @version        1.0.16
 // iStockPhoto browser script (c) Martin McCarthy 2013,2014
 // ==/UserScript==
 // v0.0.1 Martin McCarthy 4 May 2013
@@ -79,7 +79,8 @@
 // iStock changed the case of usernames is some circumstances
 // v1.0.15 Martin McCarthy 8 January 2015
 // graph royalties for more than this year
-
+// v1.0.16 Martin McCarthy 9 January 2015
+// Packaging fix
 function main() {
 	// this part is...
 	// @copyright      2009, 2010 James Campos
